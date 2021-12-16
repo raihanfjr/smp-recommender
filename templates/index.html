@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SMP Recommender System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 100%;
+      background-color: #F1FDFF;
+      line-height: 1.5;
+      color: #000;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    figure {
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+    }
+
+    .js-overflow {
+      overflow: hidden;
+    }
+
+    .bg-white {
+      background-color: #fff;
+    }
+
+    .bg-black {
+      background-color: #000;
+    }
+
+    .absolute-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      height: 100%;
+      width: 100%;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .school {
+      height: auto;
+      margin-top: 15vh;
+      margin-bottom: 15vh;
+      margin-right: 5vh;
+      margin-left: 5vh;
+      display: block;
+      background-color: white;
+      border-radius: 20px;
+      padding: 1em;
+      width: auto;
+      box-shadow: 0px 0px 10px -4px grey;
+      text-align: center;
+    }
+
+    #school_name {
+      width: 70%;
+      padding: 1em;
+      border-radius: 5px;
+      text-align: center;
+      border: 1px solid grey;
+    }
+
+    #submission_button {
+      width: 25%;
+      padding: 1em;
+      margin: 1em;
+      border-radius: 5px;
+      color: white;
+      background-color: dodgerblue;
+      border-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <!-- Demo -->
+  <div class="school">
+    <h2><u>SMP Recommendation System</u></h2>
+    <form action="{{ url_for('main') }}" method="POST">
+      <input type="text" id="school_name" name="school_name"
+        placeholder="Masukkan nama sekolah lengkap, contoh: SMP NEGERI 123" required />
+      <input type="submit" id="submission_button" value="Submit" />
+    </form>
+    <p style="color: #919191; padding: 1em;">Website ini merupakan rekomendasi SMP di bandung dan model menggunakan
+      <b>K-Mean
+        Clustering dan Content Based Recommendations</b>, Dimana idenya
+      adalah
+      <i>"Hasil rekomendasi sebuah sekolah akan serupa dengan ciri ciri/fitur sekolah lainnya yang sama."</i> Dataset
+      diambil dari <a href="http://data.bandung.go.id/" target="_blank">PORTAL DATA KOTA BANDUNG</a>.
+    <ul>
+      <li>Rizki Ramadhan Al-Mubaraq
+      <li>Muhammad Raihan Fijar Awalivian
+      <li>Yora Auliya
+    </ul>
+    </p>
+    <br>
+  </div>
+  <!-- partial -->
+
+</body>
+
+</html>

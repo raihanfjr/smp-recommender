@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SMP Recommender System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 100%;
+      background-color: #F1FDFF;
+      line-height: 1.5;
+      color: #000;
+    }
+
+    .js-overflow {
+      overflow: hidden;
+    }
+
+    .bg-white {
+      background-color: #fff;
+    }
+
+    .bg-black {
+      background-color: #000;
+    }
+
+    .absolute-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      height: 100%;
+      width: 100%;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .school {
+      height: auto;
+      margin-top: 15vh;
+      margin-bottom: 15vh;
+      margin-right: 5vh;
+      margin-left: 5vh;
+      display: block;
+      background-color: white;
+      border-radius: 20px;
+      padding: 1em;
+      width: auto;
+      box-shadow: 0px -10px 20px -5px #E2E2E2;
+      text-align: center;
+    }
+
+
+    table,
+    tr,
+    td,
+    th {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    .button {
+      font-weight: 300;
+      color: #fff;
+      font-size: 1.2em;
+      text-decoration: none;
+      border: 1px solid #efefef;
+      padding: 1em;
+      background: #007aff;
+      border-radius: 3px;
+      float: left;
+      margin: 6em 0 0 -155px;
+      left: 50%;
+      position: relative;
+      transition: all .3s linear;
+    }
+
+    .button:hover {
+      background-color: #fff;
+      color: #007aff;
+      box-shadow: 0px 0px 5px -2px grey;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="school">
+    <h2><u>Recommendations:</u></h2>
+    <p>Hasil pencarian untuk: {{ search_name }}</p>
+    <table class="school_table" align="center">
+      <tr>
+        <th>Nama Sekolah</th>
+        <th>Peserta Didik</th>
+        <th>Rombongan Belajar</th>
+        <th>Total Guru</th>
+        <th>Total Pegawai</th>
+        <th>Ruang Kelas</th>
+        <th>Ruang Lab</th>
+        <th>Ruang Perpus</th>
+        <th>Kecamatan</th>
+      </tr>
+      <tbody class="table_body">
+        <tr style="background-color:#e4e4e4">
+          <td>{{ school_names[0] }}</td>
+          <td>{{ pesdik[0] }}</td>
+          <td>{{ rombel[0] }}</td>
+          <td>{{ guru[0] }}</td>
+          <td>{{ pegawai[0] }}</td>
+          <td>{{ cls_count[0] }}</td>
+          <td>{{ lab_count[0] }}</td>
+          <td>{{ lib_count[0] }}</td>
+          <td>{{ region[0] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[1] }}</td>
+          <td>{{ pesdik[1] }}</td>
+          <td>{{ rombel[1] }}</td>
+          <td>{{ guru[1] }}</td>
+          <td>{{ pegawai[1] }}</td>
+          <td>{{ cls_count[1] }}</td>
+          <td>{{ lab_count[1] }}</td>
+          <td>{{ lib_count[1] }}</td>
+          <td>{{ region[1] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[2] }}</td>
+          <td>{{ pesdik[2] }}</td>
+          <td>{{ rombel[2] }}</td>
+          <td>{{ guru[2] }}</td>
+          <td>{{ pegawai[2] }}</td>
+          <td>{{ cls_count[2] }}</td>
+          <td>{{ lab_count[2] }}</td>
+          <td>{{ lib_count[2] }}</td>
+          <td>{{ region[2] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[3] }}</td>
+          <td>{{ pesdik[3] }}</td>
+          <td>{{ rombel[3] }}</td>
+          <td>{{ guru[3] }}</td>
+          <td>{{ pegawai[3] }}</td>
+          <td>{{ cls_count[3] }}</td>
+          <td>{{ lab_count[3] }}</td>
+          <td>{{ lib_count[3] }}</td>
+          <td>{{ region[3] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[4] }}</td>
+          <td>{{ pesdik[4] }}</td>
+          <td>{{ rombel[4] }}</td>
+          <td>{{ guru[4] }}</td>
+          <td>{{ pegawai[4] }}</td>
+          <td>{{ cls_count[4] }}</td>
+          <td>{{ lab_count[4] }}</td>
+          <td>{{ lib_count[4] }}</td>
+          <td>{{ region[4] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[5] }}</td>
+          <td>{{ pesdik[5] }}</td>
+          <td>{{ rombel[5] }}</td>
+          <td>{{ guru[5] }}</td>
+          <td>{{ pegawai[5] }}</td>
+          <td>{{ cls_count[5] }}</td>
+          <td>{{ lab_count[5] }}</td>
+          <td>{{ lib_count[5] }}</td>
+          <td>{{ region[5] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[6] }}</td>
+          <td>{{ pesdik[6] }}</td>
+          <td>{{ rombel[6] }}</td>
+          <td>{{ guru[6] }}</td>
+          <td>{{ pegawai[6] }}</td>
+          <td>{{ cls_count[6] }}</td>
+          <td>{{ lab_count[6] }}</td>
+          <td>{{ lib_count[6] }}</td>
+          <td>{{ region[6] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[7] }}</td>
+          <td>{{ pesdik[7] }}</td>
+          <td>{{ rombel[7] }}</td>
+          <td>{{ guru[7] }}</td>
+          <td>{{ pegawai[7] }}</td>
+          <td>{{ cls_count[7] }}</td>
+          <td>{{ lab_count[7] }}</td>
+          <td>{{ lib_count[7] }}</td>
+          <td>{{ region[7] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[8] }}</td>
+          <td>{{ pesdik[8] }}</td>
+          <td>{{ rombel[8] }}</td>
+          <td>{{ guru[8] }}</td>
+          <td>{{ pegawai[8] }}</td>
+          <td>{{ cls_count[8] }}</td>
+          <td>{{ lab_count[8] }}</td>
+          <td>{{ lib_count[8] }}</td>
+          <td>{{ region[8] }}</td>
+        </tr>
+        <tr>
+          <td>{{ school_names[9] }}</td>
+          <td>{{ pesdik[9] }}</td>
+          <td>{{ rombel[9] }}</td>
+          <td>{{ guru[9] }}</td>
+          <td>{{ pegawai[9] }}</td>
+          <td>{{ cls_count[9] }}</td>
+          <td>{{ lab_count[9] }}</td>
+          <td>{{ lib_count[9] }}</td>
+          <td>{{ region[9] }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="button" onClick="goBack()"><i class="fas fa-home"></i>Kembali ke halaman utama</a>
+    <br>
+  </div>
+  <!-- partial -->
+</body>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+</html>
